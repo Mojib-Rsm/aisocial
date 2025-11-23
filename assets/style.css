@@ -1,0 +1,9 @@
+/* Custom styles can go here if needed */
+.lucide {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 2;
+    stroke: currentColor;
+    fill: none;
+}

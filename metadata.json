@@ -1,0 +1,7 @@
+{
+  "name": "AI Social Toolkit",
+  "description": "An intelligent suite of AI-powered tools to supercharge your social media. Generate engaging captions, comments, hashtags, profile bios, stunning photos, and videos from text prompts.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
