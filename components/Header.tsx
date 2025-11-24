@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BotMessageSquare, Languages } from 'lucide-react';
 import { useLanguage } from '../App';
@@ -31,10 +32,22 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigateHome }) => {
             return t('ideaGenerator');
         case 'ad-copy-generator':
             return t('adCopyGenerator');
+        case 'youtube-title-generator':
+            return t('youtubeTitle');
+        case 'youtube-desc-generator':
+            return t('youtubeDesc');
+        case 'reel-script-generator':
+            return t('reelScript');
+        case 'tiktok-idea-generator':
+            return t('tiktokIdea');
         case 'video-generator':
             return t('videoGenerator');
         case 'photo-generator':
             return t('photoGenerator');
+        case 'media-downloader':
+            return t('mediaDownloader');
+        case 'font-generator':
+            return t('fontGenerator');
         default:
             return t('siteName');
     }

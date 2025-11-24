@@ -1,20 +1,20 @@
 
-
-
 import { Template, Tone, Length, Language, Goal, Stance, PoliticalParty, VideoResolution, VideoAspectRatio, ImageStyle, ImageAspectRatio } from './types';
 
 export const CAPTION_TONES: Tone[] = [Tone.Friendly, Tone.Funny, Tone.Formal, Tone.Emotional, Tone.Political, Tone.Islamic];
 export const COMMENT_TONES: Tone[] = [Tone.Friendly, Tone.Funny, Tone.Supportive, Tone.Disagreeing, Tone.Formal, Tone.Emotional, Tone.Political, Tone.Islamic];
 export const BIO_TONES: Tone[] = [Tone.Friendly, Tone.Funny, Tone.Formal, Tone.Witty, Tone.Inspirational];
 export const AD_COPY_TONES: Tone[] = [Tone.Friendly, Tone.Funny, Tone.Formal, Tone.Persuasive, Tone.Urgent];
+export const CONTENT_TONES: Tone[] = [Tone.Friendly, Tone.Funny, Tone.Inspirational, Tone.Educational, Tone.Dramatic];
+
 export const LENGTHS: Length[] = [Length.Short, Length.Medium, Length.Long];
 export const LANGUAGES: Language[] = [Language.English, Language.Bengali];
-export const GOALS: Goal[] = [Goal.Engagement, Goal.Humor, Goal.EmotionalImpact];
+export const GOALS: Goal[] = [Goal.Engagement, Goal.Humor, Goal.EmotionalImpact, Goal.Education, Goal.Sales];
 export const STANCES: Stance[] = [Stance.InFavor, Stance.Opposed, Stance.Neutral];
 export const POLITICAL_PARTIES: PoliticalParty[] = [PoliticalParty.None, PoliticalParty.AwamiLeague, PoliticalParty.BNP, PoliticalParty.JatiyaParty, PoliticalParty.JamaatShibir, PoliticalParty.NCP];
 export const VIDEO_RESOLUTIONS: VideoResolution[] = [VideoResolution.SD, VideoResolution.HD];
 export const VIDEO_ASPECT_RATIOS: VideoAspectRatio[] = [VideoAspectRatio.Landscape, VideoAspectRatio.Portrait];
-export const IMAGE_STYLES: ImageStyle[] = [ImageStyle.Photorealistic, ImageStyle.Cinematic, ImageStyle.Anime, ImageStyle.FantasyArt, ImageStyle.ThreeDModel];
+export const IMAGE_STYLES: ImageStyle[] = [ImageStyle.Photorealistic, ImageStyle.Cinematic, ImageStyle.Anime, ImageStyle.FantasyArt, ImageStyle.ThreeDModel, ImageStyle.YouTubeThumbnail];
 export const IMAGE_ASPECT_RATIOS: ImageAspectRatio[] = [
     ImageAspectRatio.Auto,
     ImageAspectRatio.Square, 
@@ -48,6 +48,16 @@ export const PROFANITY_LIST: string[] = ['badword1', 'badword2', 'offensiveword'
 export const TRANSLATIONS = {
   // Site & Header
   siteName: { en: 'AI Social Toolkit', bn: 'এআই সোশ্যাল টুলকিট' },
+  
+  // Categories
+  catDownloader: { en: '🔥 Downloader Tools', bn: '🔥 ডাউনলোডার টুলস' },
+  catAiText: { en: '🧠 AI Text Tools', bn: '🧠 এআই টেক্সট টুলস' },
+  catDesign: { en: '🎨 Design & Display', bn: '🎨 ডিজাইন এবং ডিসপ্লে' },
+  catStylish: { en: '🔤 Stylish Text', bn: '🔤 স্টাইলিশ টেক্সট' },
+  catAudio: { en: '🎵 Audio Tools', bn: '🎵 অডিও টুলস' },
+  catAnalytics: { en: '📈 Analytics & Utility', bn: '📈 অ্যানালিটিক্স এবং ইউটিলিটি' },
+
+  // Tools
   captionGenerator: { en: 'Caption Generator', bn: 'ক্যাপশন জেনারেটর' },
   commentGenerator: { en: 'Comment Generator', bn: 'কমেন্ট জেনারেটর' },
   hashtagGenerator: { en: 'Hashtag Generator', bn: 'হ্যাশট্যাগ জেনারেটর' },
@@ -56,28 +66,24 @@ export const TRANSLATIONS = {
   adCopyGenerator: { en: 'Ad Copy Generator', bn: 'বিজ্ঞাপনের কপি জেনারেটর' },
   videoGenerator: { en: 'Video Generator', bn: 'ভিডিও জেনারেটর' },
   photoGenerator: { en: 'Photo Generator', bn: 'ফটো জেনারেটর' },
+  mediaDownloader: { en: 'Media Downloader', bn: 'মিডিয়া ডাউনলোডার' },
+  youtubeTitle: { en: 'YouTube Title Generator', bn: 'ইউটিউব টাইটেল জেনারেটর' },
+  youtubeDesc: { en: 'YouTube Description', bn: 'ইউটিউব ডেসক্রিপশন' },
+  reelScript: { en: 'Reel/TikTok Script', bn: 'রিল/টিকটক স্ক্রিপ্ট' },
+  tiktokIdea: { en: 'TikTok Idea Generator', bn: 'টিকটক আইডিয়া জেনারেটর' },
+  fontGenerator: { en: 'Fancy Font Generator', bn: 'ফ্যান্সি ফন্ট জেনারেটর' },
+  
   admin: { en: 'Admin', bn: 'অ্যাডমিন' },
   
   // Homepage
-  homeTitle: { en: 'Supercharge Your Social Media Presence', bn: 'আপনার সোশ্যাল মিডিয়া উপস্থিতি সুপারচার্জ করুন' },
-  homeSubtitle: { en: 'AI-powered tools designed to help you create engaging content, faster.', bn: 'এআই-চালিত টুলস যা আপনাকে দ্রুত আকর্ষণীয় কন্টেন্ট তৈরি করতে সাহায্য করার জন্য ডিজাইন করা হয়েছে।' },
-  toolsTitle: { en: 'Our Tools', bn: 'আমাদের টুলস' },
-  captionToolTitle: { en: 'Facebook Post Caption Generator', bn: 'ফেসবুক পোস্ট ক্যাপশন জেনারেটর' },
-  captionToolDesc: { en: 'Generate creative and tone-specific captions for your posts in seconds.', bn: 'সেকেন্ডের মধ্যে আপনার পোস্টের জন্য সৃজনশীল এবং টোন-নির্দিষ্ট ক্যাপশন তৈরি করুন।' },
-  commentToolTitle: { en: 'Facebook Post Comment Generator', bn: 'ফেসবুক পোস্ট কমেন্ট জেনারেটর' },
-  commentToolDesc: { en: 'Craft thoughtful and relevant comments to engage with your audience.', bn: 'আপনার দর্শকদের সাথে যুক্ত হতে চিন্তাশীল এবং প্রাসঙ্গিক মন্তব্য তৈরি করুন।' },
-  hashtagToolTitle: { en: 'Hashtag Generator', bn: 'হ্যাশট্যাগ জেনারেটর' },
-  hashtagToolDesc: { en: 'Find the most effective and relevant hashtags to boost your post\'s reach.', bn: 'আপনার পোস্টের রিচ বাড়াতে সবচেয়ে কার্যকর এবং প্রাসঙ্গিক হ্যাশট্যাগ খুঁজুন।' },
-  bioToolTitle: { en: 'Profile Bio Generator', bn: 'প্রোফাইল বায়ো জেনারেটর' },
-  bioToolDesc: { en: 'Create a unique and compelling bio for your social media profile.', bn: 'আপনার সোশ্যাল মিডিয়া প্রোফাইলের জন্য একটি অনন্য এবং আকর্ষণীয় বায়ো তৈরি করুন।' },
-  ideaToolTitle: { en: 'AI Content Idea Generator', bn: 'এআই কনটেন্ট আইডিয়া জেনারেটর' },
-  ideaToolDesc: { en: 'Never run out of ideas. Generate creative content topics for any niche.', bn: 'আপনার আইডিয়ার ভান্ডার কখনো খালি হবে না। যেকোনো বিষয়ের জন্য সৃজনশীল কনটেন্ট টপিক তৈরি করুন।' },
-  adCopyToolTitle: { en: 'AI Ad Copy Generator', bn: 'এআই বিজ্ঞাপন কপি জেনারেটর' },
-  adCopyToolDesc: { en: 'Write high-converting ad copy for your products or services.', bn: 'আপনার পণ্য বা পরিষেবার জন্য উচ্চ-রূপান্তরকারী বিজ্ঞাপন কপি লিখুন।' },
-  videoToolTitle: { en: 'AI Video Generator', bn: 'এআই ভিডিও জেনারেটর' },
-  videoToolDesc: { en: 'Create stunning, high-quality videos from a simple text description.', bn: 'একটি সাধারণ টেক্সট বর্ণনা থেকে অত্যাশ্চর্য, উচ্চ-মানের ভিডিও তৈরি করুন।' },
-  photoToolTitle: { en: 'AI Photo Generator', bn: 'এআই ফটো জেনারেটর' },
-  photoToolDesc: { en: 'Create stunning, high-quality photos from a simple text description.', bn: 'একটি সাধারণ টেক্সট বর্ণনা থেকে অত্যাশ্চর্য, উচ্চ-মানের ফটো তৈরি করুন।' },
+  homeTitle: { en: 'All-in-One Social Media Toolkit', bn: 'অল-ইন-ওয়ান সোশ্যাল মিডিয়া টুলকিট' },
+  homeSubtitle: { en: '50+ Free Tools to Supercharge Your Social Media Presence', bn: 'আপনার সোশ্যাল মিডিয়া উপস্থিতি সুপারচার্জ করার জন্য ৫০+ ফ্রি টুলস' },
+  toolsTitle: { en: 'All Tools', bn: 'সকল টুলস' },
+  
+  // Tool Descriptions (Generic)
+  descText: { en: 'Generate high-quality text content.', bn: 'উচ্চ মানের টেক্সট কনটেন্ট তৈরি করুন।' },
+  descVideo: { en: 'Create or download videos.', bn: 'ভিডিও তৈরি বা ডাউনলোড করুন।' },
+  descPhoto: { en: 'Create or edit photos.', bn: 'ছবি তৈরি বা এডিট করুন।' },
   
   // Generator Controls
   create: { en: 'Create', bn: 'তৈরি করুন' },
@@ -85,9 +91,13 @@ export const TRANSLATIONS = {
   postContentPlaceholder: { en: 'Enter post topic, content, or link...', bn: 'পোস্টের বিষয়বস্তু, টপিক বা লিঙ্ক লিখুন...' },
   postToCommentOnPlaceholder: { en: 'Enter content of the post to comment on...', bn: 'যে পোস্টে মন্তব্য করতে চান তার বিষয়বস্তু লিখুন...' },
   hashtagTopicPlaceholder: { en: 'Enter a topic to generate hashtags for...', bn: 'হ্যাশট্যাগ জেনারেট করার জন্য একটি টপিক লিখুন...' },
-  bioInfoPlaceholder: { en: 'Describe yourself or your brand (e.g., "Digital marketer, coffee lover, travels the world")...', bn: 'আপনার বা আপনার ব্র্যান্ড সম্পর্কে বর্ণনা করুন (যেমন, "ডিজিটাল মার্কেটার, কফি প্রেমী, বিশ্ব ভ্রমণকারী")...' },
-  ideaTopicPlaceholder: { en: 'Enter a topic to get content ideas for (e.g., "healthy breakfast")...', bn: 'কনটেন্ট আইডিয়ার জন্য একটি বিষয় লিখুন (যেমন, "স্বাস্থ্যকর সকালের নাস্তা")...' },
-  adCopyProductPlaceholder: { en: 'Describe your product or service (e.g., "Handmade leather wallets for men")...', bn: 'আপনার পণ্য বা পরিষেবা বর্ণনা করুন (যেমন, "পুরুষদের জন্য হাতে তৈরি চামড়ার মানিব্যাগ")...' },
+  bioInfoPlaceholder: { en: 'Describe yourself or your brand...', bn: 'আপনার বা আপনার ব্র্যান্ড সম্পর্কে বর্ণনা করুন...' },
+  ideaTopicPlaceholder: { en: 'Enter a niche (e.g., "healthy breakfast")...', bn: 'একটি টপিক লিখুন (যেমন, "স্বাস্থ্যকর সকালের নাস্তা")...' },
+  adCopyProductPlaceholder: { en: 'Describe your product or service...', bn: 'আপনার পণ্য বা পরিষেবা বর্ণনা করুন...' },
+  videoPromptPlaceholder: { en: 'e.g., A cinematic shot of a futuristic city...', bn: 'যেমন, উড়ন্ত গাড়ি সহ সূর্যাস্তের সময় একটি ভবিষ্যৎ শহরের সিনেম্যাটিক শট' },
+  ytTitlePlaceholder: { en: 'Enter video topic...', bn: 'ভিডিওর বিষয় লিখুন...' },
+  scriptPlaceholder: { en: 'Enter video concept...', bn: 'ভিডিওর কনসেপ্ট লিখুন...' },
+  
   quickMode: { en: 'Quick Mode', bn: 'কুইক মোড' },
   advanced: { en: 'Advanced', bn: 'অ্যাডভান্সড' },
   tone: { en: 'Tone', bn: 'টোন' },
@@ -105,7 +115,6 @@ export const TRANSLATIONS = {
   goal: { en: 'Goal', bn: 'লক্ষ্য' },
 
   // Video Generator
-  videoPromptPlaceholder: { en: 'e.g., A cinematic shot of a futuristic city at sunset with flying cars', bn: 'যেমন, উড়ন্ত গাড়ি সহ সূর্যাস্তের সময় একটি ভবিষ্যৎ শহরের সিনেম্যাটিক শট' },
   resolution: { en: 'Resolution', bn: 'রেজোলিউশন' },
   aspectRatio: { en: 'Aspect Ratio', bn: 'অ্যাসপেক্ট রেশিও' },
   generateVideo: { en: 'Generate Video', bn: 'ভিডিও তৈরি করুন' },
@@ -114,8 +123,9 @@ export const TRANSLATIONS = {
   startCreatingVideo: { en: 'Describe the video you want to create!', bn: 'আপনি যে ভিডিওটি তৈরি করতে চান তার বর্ণনা দিন!' },
   startCreatingVideoSub: { en: 'Enter a detailed prompt, choose your options, and let the AI bring your vision to life.', bn: 'একটি বিস্তারিত প্রম্পট লিখুন, আপনার বিকল্পগুলি চয়ন করুন এবং এআইকে আপনার কল্পনাকে জীবন্ত করে তুলতে দিন।' },
   downloadVideo: { en: 'Download Video', bn: 'ভিডিও ডাউনলোড করুন' },
+  downloadAudio: { en: 'Download Audio (MP3)', bn: 'অডিও ডাউনলোড (MP3)' },
   selectApiKey: { en: 'Select API Key to Generate Video', bn: 'ভিডিও তৈরি করতে API কী নির্বাচন করুন' },
-  apiKeyRequired: { en: 'An API key is required for video generation. This ensures fair usage and access to the powerful Veo model.', bn: 'ভিডিও জেনারেশনের জন্য একটি API কী প্রয়োজন। এটি Veo মডেলের ন্যায্য ব্যবহার এবং অ্যাক্সেস নিশ্চিত করে।' },
+  apiKeyRequired: { en: 'An API key is required for video generation.', bn: 'ভিডিও জেনারেশনের জন্য একটি API কী প্রয়োজন।' },
   billingInfo: { en: 'For more information on billing, visit the official documentation.', bn: 'বিলিং সম্পর্কে আরও তথ্যের জন্য, অফিসিয়াল ডকুমেন্টেশন দেখুন।' },
   videoGenWait: { en: 'Video generation can take a few minutes. Please be patient.', bn: 'ভিডিও তৈরি হতে কয়েক মিনিট সময় লাগতে পারে। অনুগ্রহ করে ধৈর্য ধরুন।' },
   videoGenProgress1: { en: 'Warming up the creative engines...', bn: 'সৃজনশীল ইঞ্জিন গরম হচ্ছে...' },
@@ -123,7 +133,7 @@ export const TRANSLATIONS = {
   videoGenProgress3: { en: 'Rendering the final cut...', bn: 'ফাইনাল কাট রেন্ডার করা হচ্ছে...' },
   
   // Photo Generator
-  photoPromptPlaceholder: { en: 'e.g., A photorealistic image of an astronaut riding a horse on Mars', bn: 'যেমন, মঙ্গলে ঘোড়ায় চড়া একজন নভোচারীর একটি ফটোরিয়ালিস্টিক ছবি' },
+  photoPromptPlaceholder: { en: 'e.g., A photorealistic image of an astronaut...', bn: 'যেমন, মঙ্গলে ঘোড়ায় চড়া একজন নভোচারীর একটি ফটোরিয়ালিস্টিক ছবি' },
   style: { en: 'Style', bn: 'স্টাইল' },
   generatePhoto: { en: 'Generate Photo', bn: 'ফটো তৈরি করুন' },
   generatingPhoto: { en: 'Generating Photo...', bn: 'ফটো তৈরি হচ্ছে...' },
@@ -132,6 +142,47 @@ export const TRANSLATIONS = {
   startCreatingPhotoSub: { en: 'Enter a detailed prompt, choose your style, and let the AI bring your vision to life.', bn: 'একটি বিস্তারিত প্রম্পট লিখুন, আপনার স্টাইল চয়ন করুন এবং এআইকে আপনার কল্পনাকে জীবন্ত করে তুলতে দিন।' },
   downloadPhoto: { en: 'Download Photo', bn: 'ফটো ডাউনলোড করুন' },
   
+  // Media Downloader
+  thumbnailDownloader: { en: 'Thumbnail', bn: 'থাম্বনেইল' },
+  facebookDownloader: { en: 'Facebook', bn: 'ফেসবুক' },
+  instagramDownloader: { en: 'Instagram', bn: 'ইনস্টাগ্রাম' },
+  youtubeDownloader: { en: 'YouTube', bn: 'ইউটিউব' },
+  tiktokDownloader: { en: 'TikTok', bn: 'টিকটক' },
+  twitterDownloader: { en: 'X / Twitter', bn: 'X / টুইটার' },
+  pinterestDownloader: { en: 'Pinterest', bn: 'পিন্টারেস্ট' },
+  audioDownloader: { en: 'YouTube to MP3', bn: 'ইউটিউব থেকে MP3' },
+  
+  pasteUrl: { en: 'Paste URL here...', bn: 'এখানে URL পেস্ট করুন...' },
+  facebookPlaceholder: { en: 'Paste Facebook video/reel URL...', bn: 'ফেসবুক ভিডিওর URL পেস্ট করুন...' },
+  instagramPlaceholder: { en: 'Paste Instagram reel/video URL...', bn: 'ইনস্টাগ্রাম রিল/ভিডিওর URL পেস্ট করুন...' },
+  youtubePlaceholder: { en: 'Paste YouTube video URL...', bn: 'ইউটিউব ভিডিওর URL পেস্ট করুন...' },
+  tiktokPlaceholder: { en: 'Paste TikTok video URL...', bn: 'টিকটক ভিডিওর URL পেস্ট করুন...' },
+  twitterPlaceholder: { en: 'Paste X/Twitter post URL...', bn: 'X/টুইটার পোস্টের URL পেস্ট করুন...' },
+  pinterestPlaceholder: { en: 'Paste Pinterest pin URL...', bn: 'পিন্টারেস্ট পিনের URL পেস্ট করুন...' },
+  
+  getThumbnail: { en: 'Get Thumbnail', bn: 'থাম্বনেইল দেখুন' },
+  downloadImage: { en: 'Download Image', bn: 'ছবি ডাউনলোড করুন' },
+  resolutions: { en: 'Available Resolutions', bn: 'উপলব্ধ রেজোলিউশন' },
+  maxRes: { en: 'Maximum Resolution', bn: 'সর্বোচ্চ রেজোলিউশন' },
+  highRes: { en: 'High Quality', bn: 'উচ্চ গুণমান' },
+  stdRes: { en: 'Standard Quality', bn: 'সাধারণ গুণমান' },
+  detecting: { en: 'Detecting...', bn: 'শনাক্ত করা হচ্ছে...' },
+  platformDetected: { en: 'Platform Detected', bn: 'প্ল্যাটফর্ম শনাক্ত হয়েছে' },
+  downloadError: { en: 'Problem downloading video. Please check URL.', bn: 'ভিডিও ডাউনলোড করতে সমস্যা হচ্ছে। অনুগ্রহ করে URL চেক করুন।' },
+  invalidUrl: { en: 'Invalid URL.', bn: 'ভুল URL।' },
+  invalidFacebookUrl: { en: 'Invalid Facebook URL. Please check the link.', bn: 'ভুল ফেসবুক URL। অনুগ্রহ করে লিঙ্কটি চেক করুন।' },
+  invalidInstagramUrl: { en: 'Invalid Instagram URL. Please check the link.', bn: 'ভুল ইনস্টাগ্রাম URL। অনুগ্রহ করে লিঙ্কটি চেক করুন।' },
+  invalidYoutubeUrl: { en: 'Invalid YouTube URL. Please check the link.', bn: 'ভুল ইউটিউব URL। অনুগ্রহ করে লিঙ্কটি চেক করুন।' },
+  invalidTiktokUrl: { en: 'Invalid TikTok URL.', bn: 'ভুল টিকটক URL।' },
+  invalidTwitterUrl: { en: 'Invalid X/Twitter URL.', bn: 'ভুল X/টুইটার URL।' },
+  invalidPinterestUrl: { en: 'Invalid Pinterest URL.', bn: 'ভুল পিন্টারেস্ট URL।' },
+  processing: { en: 'Processing...', bn: 'প্রক্রিয়া করা হচ্ছে...' },
+  downloadReady: { en: 'Download Ready', bn: 'ডাউনলোড তৈরি' },
+
+  // Font Generator
+  fontPreview: { en: 'Preview', bn: 'প্রিভিউ' },
+  enterText: { en: 'Enter text here...', bn: 'এখানে টেক্সট লিখুন...' },
+
   // Generator Actions & Results
   generateCaptions: { en: 'Generate Captions', bn: 'ক্যাপশন তৈরি করুন' },
   generateComments: { en: 'Generate Comments', bn: 'কমেন্ট তৈরি করুন' },
@@ -139,6 +190,10 @@ export const TRANSLATIONS = {
   generateBios: { en: 'Generate Bios', bn: 'বায়ো তৈরি করুন' },
   generateIdeas: { en: 'Generate Ideas', bn: 'আইডিয়া তৈরি করুন' },
   generateAdCopy: { en: 'Generate Ad Copy', bn: 'বিজ্ঞাপনের কপি তৈরি করুন' },
+  generateYtTitle: { en: 'Generate Title', bn: 'টাইটেল তৈরি করুন' },
+  generateYtDesc: { en: 'Generate Description', bn: 'ডেসক্রিপশন তৈরি করুন' },
+  generateScript: { en: 'Generate Script', bn: 'স্ক্রিপ্ট তৈরি করুন' },
+  
   generating: { en: 'Generating...', bn: 'তৈরি হচ্ছে...' },
   generatedCaptions: { en: 'Generated Captions', bn: 'তৈরি হওয়া ক্যাপশন' },
   generatedComments: { en: 'Generated Comments', bn: 'তৈরি হওয়া কমেন্ট' },
@@ -146,6 +201,10 @@ export const TRANSLATIONS = {
   generatedBios: { en: 'Generated Bios', bn: 'তৈরি হওয়া বায়ো' },
   generatedIdeas: { en: 'Generated Ideas', bn: 'তৈরি হওয়া আইডিয়া' },
   generatedAdCopies: { en: 'Generated Ad Copies', bn: 'তৈরি হওয়া বিজ্ঞাপন কপি' },
+  generatedYtTitles: { en: 'Generated Titles', bn: 'তৈরি হওয়া টাইটেল' },
+  generatedYtDescs: { en: 'Generated Descriptions', bn: 'তৈরি হওয়া ডেসক্রিপশন' },
+  generatedScripts: { en: 'Generated Scripts', bn: 'তৈরি হওয়া স্ক্রিপ্ট' },
+  
   regenerate: { en: 'Regenerate', bn: 'পুনরায় তৈরি করুন' },
   undo: { en: 'Undo', bn: 'পূর্বাবস্থায় ফেরান' },
   errorPostContent: { en: 'Please enter some content or a topic.', bn: 'অনুগ্রহ করে কিছু বিষয়বস্তু বা একটি টপিক লিখুন।' },
@@ -157,6 +216,10 @@ export const TRANSLATIONS = {
   startCreatingBios: { en: 'Start by creating a new bio!', bn: 'একটি নতুন বায়ো তৈরি করে শুরু করুন!' },
   startCreatingIdeas: { en: 'Start by generating some content ideas!', bn: 'কিছু কনটেন্ট আইডিয়া তৈরি করে শুরু করুন!' },
   startCreatingAdCopy: { en: 'Start by generating some ad copy!', bn: 'কিছু বিজ্ঞাপনের কপি তৈরি করে শুরু করুন!' },
+  startCreatingYtTitle: { en: 'Start by generating video titles!', bn: 'ভিডিও টাইটেল তৈরি করে শুরু করুন!' },
+  startCreatingYtDesc: { en: 'Start by generating descriptions!', bn: 'ডেসক্রিপশন তৈরি করে শুরু করুন!' },
+  startCreatingScript: { en: 'Start by generating a script!', bn: 'স্ক্রিপ্ট তৈরি করে শুরু করুন!' },
+  
   startCreatingSub: { en: 'Fill in the details on the left and click "Generate" to see the magic happen.', bn: 'বাম দিকের বিবরণ পূরণ করুন এবং জাদু দেখতে "জেনারেট" ক্লিক করুন।' },
   tryTemplates: { en: 'Or, try one of our templates:', bn: 'অথবা, আমাদের টেমপ্লেটগুলো চেষ্টা করুন:' },
 

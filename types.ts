@@ -13,6 +13,8 @@ export enum Tone {
   Inspirational = 'Inspirational',
   Persuasive = 'Persuasive',
   Urgent = 'Urgent',
+  Dramatic = 'Dramatic',
+  Educational = 'Educational',
 }
 
 export enum Length {
@@ -30,6 +32,8 @@ export enum Goal {
     Engagement = 'Engagement',
     Humor = 'Humor',
     EmotionalImpact = 'Emotional Impact',
+    Education = 'Education',
+    Sales = 'Sales',
 }
 
 export enum Stance {
@@ -63,6 +67,7 @@ export enum ImageStyle {
     Anime = 'Anime',
     FantasyArt = 'Fantasy Art',
     ThreeDModel = '3D Model',
+    YouTubeThumbnail = 'YouTube Thumbnail',
 }
 
 export enum ImageAspectRatio {
@@ -100,8 +105,16 @@ export interface User {
   status: 'Active' | 'Warned' | 'Banned';
 }
 
-export type ToolMode = 'caption' | 'comment' | 'hashtag' | 'bio' | 'idea' | 'ad-copy' | 'video' | 'photo';
-export type Page = 'home' | 'caption-generator' | 'comment-generator' | 'hashtag-generator' | 'bio-generator' | 'idea-generator' | 'ad-copy-generator' | 'video-generator' | 'photo-generator';
+export type ToolMode = 
+  | 'caption' | 'comment' | 'hashtag' | 'bio' | 'idea' | 'ad-copy' 
+  | 'youtube-title' | 'youtube-desc' | 'reel-script' | 'tiktok-idea' 
+  | 'video' | 'photo';
+
+export type Page = 
+  | 'home' 
+  | 'caption-generator' | 'comment-generator' | 'hashtag-generator' | 'bio-generator' | 'idea-generator' | 'ad-copy-generator' 
+  | 'youtube-title-generator' | 'youtube-desc-generator' | 'reel-script-generator' | 'tiktok-idea-generator'
+  | 'video-generator' | 'photo-generator' | 'media-downloader' | 'font-generator';
 
 export interface GenerationParams {
     postContent: string;

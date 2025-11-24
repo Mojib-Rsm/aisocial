@@ -1,7 +1,8 @@
 
+
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Tone, Length, Language, Goal, GeneratedText, GenerationParams, Template, Stance, PoliticalParty, ToolMode, UploadedImage } from '../types';
-import { CAPTION_TONES, COMMENT_TONES, BIO_TONES, AD_COPY_TONES, LENGTHS, LANGUAGES, GOALS, CAPTION_TEMPLATES, COMMENT_TEMPLATES, STANCES, POLITICAL_PARTIES } from '../constants';
+import { CAPTION_TONES, COMMENT_TONES, BIO_TONES, AD_COPY_TONES, CONTENT_TONES, LENGTHS, LANGUAGES, GOALS, CAPTION_TEMPLATES, COMMENT_TEMPLATES, STANCES, POLITICAL_PARTIES } from '../constants';
 import { generateText } from '../services/geminiService';
 import GeneratedTextCard from './CommentCard';
 import { History, Sparkles, Settings2, Zap, ArrowLeft, RotateCw, XCircle, ImagePlus, Mic, ChevronDown, ChevronUp } from 'lucide-react';
@@ -85,7 +86,6 @@ const Generator: React.FC<GeneratorProps> = ({ toolMode }) => {
   const [generatedCount, setGeneratedCount] = useState<number>(0);
   const [subView, setSubView] = useState<'generator' | 'history'>('generator');
   const [isListening, setIsListening] = useState(false);
-  // FIX: Added missing state for history tab management.
   const [historyTab, setHistoryTab] = useState<'saved' | 'full'>('saved');
 
   const imageInputRef = useRef<HTMLInputElement>(null);
@@ -124,9 +124,9 @@ const Generator: React.FC<GeneratorProps> = ({ toolMode }) => {
           generateBtn: t('generateHashtags'),
           generatedTitle: t('generatedHashtags'),
           emptyState: t('startCreatingHashtags'),
-          politicalToggle: '', // Not applicable
-          tones: [], // Not applicable
-          templates: [], // No specific templates for now
+          politicalToggle: '',
+          tones: [],
+          templates: [],
           showImageUpload: false,
           showAdvanced: false,
         };
@@ -136,9 +136,9 @@ const Generator: React.FC<GeneratorProps> = ({ toolMode }) => {
           generateBtn: t('generateBios'),
           generatedTitle: t('generatedBios'),
           emptyState: t('startCreatingBios'),
-          politicalToggle: '', // Not applicable
+          politicalToggle: '',
           tones: BIO_TONES,
-          templates: [], // No specific templates for now
+          templates: [],
           showImageUpload: false,
           showAdvanced: true,
         };
@@ -148,9 +148,9 @@ const Generator: React.FC<GeneratorProps> = ({ toolMode }) => {
           generateBtn: t('generateIdeas'),
           generatedTitle: t('generatedIdeas'),
           emptyState: t('startCreatingIdeas'),
-          politicalToggle: '', // Not applicable
-          tones: CAPTION_TONES, // General tones
-          templates: [], // No templates for now
+          politicalToggle: '',
+          tones: CAPTION_TONES,
+          templates: [],
           showImageUpload: false,
           showAdvanced: true,
         };
@@ -160,11 +160,71 @@ const Generator: React.FC<GeneratorProps> = ({ toolMode }) => {
           generateBtn: t('generateAdCopy'),
           generatedTitle: t('generatedAdCopies'),
           emptyState: t('startCreatingAdCopy'),
-          politicalToggle: '', // Not applicable
+          politicalToggle: '',
           tones: AD_COPY_TONES,
-          templates: [], // No templates for now
+          templates: [],
           showImageUpload: true,
           showAdvanced: true,
+        };
+      case 'youtube-title':
+        return {
+          placeholder: t('ytTitlePlaceholder'),
+          generateBtn: t('generateYtTitle'),
+          generatedTitle: t('generatedYtTitles'),
+          emptyState: t('startCreatingYtTitle'),
+          politicalToggle: '',
+          tones: AD_COPY_TONES,
+          templates: [],
+          showImageUpload: false,
+          showAdvanced: true,
+        };
+      case 'youtube-desc':
+        return {
+          placeholder: t('ytTitlePlaceholder'),
+          generateBtn: t('generateYtDesc'),
+          generatedTitle: t('generatedYtDescs'),
+          emptyState: t('startCreatingYtDesc'),
+          politicalToggle: '',
+          tones: CAPTION_TONES,
+          templates: [],
+          showImageUpload: false,
+          showAdvanced: true,
+        };
+      case 'reel-script':
+        return {
+          placeholder: t('scriptPlaceholder'),
+          generateBtn: t('generateScript'),
+          generatedTitle: t('generatedScripts'),
+          emptyState: t('startCreatingScript'),
+          politicalToggle: '',
+          tones: CONTENT_TONES,
+          templates: [],
+          showImageUpload: false,
+          showAdvanced: true,
+        };
+      case 'tiktok-idea':
+        return {
+          placeholder: t('ideaTopicPlaceholder'),
+          generateBtn: t('generateIdeas'),
+          generatedTitle: t('generatedIdeas'),
+          emptyState: t('startCreatingIdeas'),
+          politicalToggle: '',
+          tones: CONTENT_TONES,
+          templates: [],
+          showImageUpload: false,
+          showAdvanced: true,
+        };
+      default: 
+        return {
+           placeholder: 'Enter content...',
+           generateBtn: 'Generate',
+           generatedTitle: 'Results',
+           emptyState: 'Start generating...',
+           politicalToggle: '',
+           tones: CAPTION_TONES,
+           templates: [],
+           showImageUpload: false,
+           showAdvanced: true,
         };
     }
   }, [toolMode, t]);

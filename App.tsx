@@ -1,9 +1,12 @@
+
 import React from 'react';
 import Header from './components/Header';
 import Generator from './components/Generator';
 import HomePage from './components/HomePage';
 import VideoGenerator from './components/VideoGenerator';
-import PhotoGenerator from './components/PhotoGenerator'; // Import the new component
+import PhotoGenerator from './components/PhotoGenerator';
+import MediaDownloader from './components/MediaDownloader';
+import FontGenerator from './components/FontGenerator'; // New Import
 import { TRANSLATIONS } from './constants';
 import { Page } from './types';
 
@@ -35,6 +38,7 @@ const App: React.FC = () => {
   
   const navigateTo = (newPage: Page) => {
     setPage(newPage);
+    window.scrollTo(0, 0);
   }
 
   const value = { language, setLanguage, t };
@@ -55,10 +59,22 @@ const App: React.FC = () => {
         return <Generator toolMode="idea" />;
       case 'ad-copy-generator':
         return <Generator toolMode="ad-copy" />;
+      case 'youtube-title-generator':
+        return <Generator toolMode="youtube-title" />;
+      case 'youtube-desc-generator':
+        return <Generator toolMode="youtube-desc" />;
+      case 'reel-script-generator':
+        return <Generator toolMode="reel-script" />;
+      case 'tiktok-idea-generator':
+        return <Generator toolMode="tiktok-idea" />;
       case 'video-generator':
         return <VideoGenerator />;
-      case 'photo-generator': // Add the new case
+      case 'photo-generator':
         return <PhotoGenerator />;
+      case 'media-downloader':
+        return <MediaDownloader />;
+      case 'font-generator':
+        return <FontGenerator />;
       default:
         return <HomePage onNavigate={navigateTo} />;
     }

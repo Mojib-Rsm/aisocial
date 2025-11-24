@@ -1,3 +1,4 @@
+
 import { GoogleGenAI, Type } from "@google/genai";
 import { GenerationParams, PoliticalParty, Tone } from '../types';
 import { PROFANITY_LIST } from '../constants';
@@ -25,6 +26,14 @@ const getToolConfig = (toolMode: GenerationParams['toolMode']) => {
             return { generationType: 'content idea', jsonKey: 'ideas', expert: 'creative content strategist' };
         case 'ad-copy':
             return { generationType: 'ad copy', jsonKey: 'ad_copies', expert: 'expert direct response copywriter' };
+        case 'youtube-title':
+            return { generationType: 'YouTube title', jsonKey: 'titles', expert: 'YouTube SEO and clickbait expert' };
+        case 'youtube-desc':
+            return { generationType: 'YouTube description', jsonKey: 'descriptions', expert: 'YouTube SEO expert' };
+        case 'reel-script':
+            return { generationType: 'short video script', jsonKey: 'scripts', expert: 'viral short video scriptwriter' };
+        case 'tiktok-idea':
+            return { generationType: 'TikTok concept', jsonKey: 'ideas', expert: 'TikTok trend analyst' };
         default:
             throw new Error(`Invalid tool mode: ${toolMode}`);
     }
@@ -58,7 +67,11 @@ const buildPrompt = (params: GenerationParams): string => {
         hashtag: `Topic: "${params.postContent}"`,
         bio: `Information about the user/brand: "${params.postContent}"`,
         idea: `Topic for content ideas: "${params.postContent}"`,
-        'ad-copy': `Product/Service to advertise: "${params.postContent}"`
+        'ad-copy': `Product/Service to advertise: "${params.postContent}"`,
+        'youtube-title': `Video Topic: "${params.postContent}"`,
+        'youtube-desc': `Video Topic/Title: "${params.postContent}"`,
+        'reel-script': `Video Concept: "${params.postContent}"`,
+        'tiktok-idea': `Niche/Topic: "${params.postContent}"`,
     }[params.toolMode];
 
     let prompt = `You are an expert ${expert}. Your task is to generate 5 distinct ${generationType}s based on the following criteria.\n`;
@@ -69,11 +82,17 @@ const buildPrompt = (params: GenerationParams): string => {
         prompt += `\n**IMPORTANT RULE: Hashtags must start with '#', contain no spaces, and be relevant to the topic.**\n`;
     }
     
-    if (params.toolMode === 'idea') {
-        prompt += `\n**Content Idea Format:** Generate a mix of ideas, such as listicles, how-to guides, questions for the audience, and myth-busting topics.\n`;
+    if (params.toolMode === 'idea' || params.toolMode === 'tiktok-idea') {
+        prompt += `\n**Idea Format:** Generate a mix of ideas, such as listicles, how-to guides, questions for the audience, and myth-busting topics.\n`;
     }
     if (params.toolMode === 'ad-copy') {
         prompt += `\n**Ad Copy Structure:** Each ad copy should include a compelling Headline, persuasive Body text, and a clear Call to Action (CTA). Format each as a single string.\n`;
+    }
+    if (params.toolMode === 'reel-script') {
+        prompt += `\n**Script Structure:** Provide a short script with a Hook, Body, and CTA. Keep it concise for short-form video.\n`;
+    }
+    if (params.toolMode === 'youtube-title') {
+        prompt += `\n**Title Style:** Generate high-CTR, catchy titles optimized for clicks (Clickbait but honest).\n`;
     }
 
     prompt += `\n${inputTopic}\n`;
